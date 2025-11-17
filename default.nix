@@ -1,6 +1,7 @@
-let
-  pkgs = import <nixpkgs> { };
-in
+{
+  pkgs ? import <nixpkgs> { },
+  ...
+}:
 
 with pkgs.python313Packages;
 
