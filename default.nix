@@ -30,7 +30,7 @@ let
   };
 in
 
-buildPythonApplication rec {
+buildPythonApplication {
   name = "gamma-launcher";
   src = ./.;
 
