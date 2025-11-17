@@ -62,6 +62,13 @@ buildPythonApplication {
   ];
 
   postFixup = ''
-    wrapProgram $out/bin/gamma-launcher --set UNRAR_LIB_PATH ${pkgs.unrar}/lib/libunrar.so
+    wrapProgram $out/bin/gamma-launcher \
+    --prefix PATH : "${
+      lib.makeBinPath [
+        pkgs.p7zip
+      ]
+    }" \
+    --set UNRAR_LIB_PATH \
+    ${pkgs.unrar}/lib/libunrar.so
   '';
 }
